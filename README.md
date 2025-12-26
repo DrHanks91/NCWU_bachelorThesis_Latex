@@ -1,0 +1,2 @@
+# NCWU_bachelorThesis_Latex
+华北水利水电大学本科毕设Latex模版
