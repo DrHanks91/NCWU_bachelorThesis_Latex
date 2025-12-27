@@ -1,5 +1,5 @@
-# NCWU_bachelorThesis_Latex
-# 华北水利水电大学本科毕设Latex模版使用说明
+# NCWU_bachelorThesis_Latex(Updating)
+# 华北水利水电大学本科毕设Latex模版使用说明（持续更新）
 
 ## 步骤1: 安装Texlive + TeXstudio 编译和编辑环境（以下任一）
 Texlive.iso 安装包比较大，网络不好的同学可以找小组长拷贝。U盘需要有10G左右的内存。
@@ -51,7 +51,7 @@ txs:///biber
 ![alt text](image-1.png)
 
 修改2: 文献key的生成格式为【[year]_[auth]】，或者复制：
-```
+```t
 [year]_[auth]
 ```
 
