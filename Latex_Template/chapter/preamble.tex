@@ -1,0 +1,211 @@
+%\usepackage[heading]{ctex}
+\ctexset{
+	chapter = {
+		number = \arabic{chapter},
+		format = \heiti\zihao{3}\centering,  % 三号黑体，居中
+		aftername = \quad,            % 编号和标题之间的间距
+		beforeskip = -1.5ex,          % 调整段前距离
+		afterskip = 2.5ex,            % 标题后的垂直间距，用于占2行
+		fixskip = true,               % 固定前后间距
+		},
+	section = {
+		format = \heiti\zihao{-3},    % 小三号黑体
+		beforeskip = 6pt,             % 段前6磅
+		afterskip = 6pt,              % 段后6磅
+		aftername = \quad,            % 编号和标题之间的间距
+		},
+	subsection = {
+			format = \heiti\zihao{4},     % 四号黑体
+			beforeskip = 3pt,             % 段前3磅
+			afterskip = 3pt,              % 段后3磅
+			aftername = \quad,            % 编号和标题之间的间距
+		}
+}
+	
+
+\usepackage[normalem]{ulem}	% to use underline \uline{text}
+\usepackage{xstring}	%to split long text
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{placeins}
+
+\usepackage{float}      % 浮动体控制
+%-----------------------setting font
+
+%\setCJKmainfont{SimSun}
+
+\setCJKmainfont{SimSun}
+\setmainfont{Times New Roman}
+
+\newcommand{\zhli}{\CJKfamily{zhli}}
+
+\newcommand{\zhkai}{\CJKfamily{zhkai}}
+
+\newcommand{\zhfs}{\CJKfamily{zhfs}}
+%-----------------------setting font
+
+
+%--------------------------------- set bib style
+\usepackage[
+	backend=biber,        % 使用biber后端（必须）
+	style=gb7714-2015,   % 国标样式（需要安装biblatex-gb7714-2015包）
+	sorting=none,         % 按姓名、标题、年份排序
+	gbnamefmt=lowercase, % 作者姓名大小写格式
+	gbpub=false,         % 不显示"出版地不详"等
+	gbalign=left,        % 对齐方式
+	doi=false,           % 是否显示DOI
+	url=false,           % 是否显示URL
+	isbn=false           % 是否显示ISBN
+]{biblatex}
+
+
+\addbibresource{bib/main.bib}  % 假设references.bib和main.tex在同一目录
+
+% 设置参考文献标题格式
+\defbibheading{bibliography}[\bibname]{
+	\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+	\markboth{#1}{#1}
+}
+%--------------------------------- set bib style
+
+
+
+
+%---------------------------------------------公式配置
+\usepackage{amsmath, amssymb, amsfonts, mathtools}        % 核心公式宏包（必加，支持各类公式环境）
+% 公式编号格式：章节-序号（如1-1，匹配你的图/表编号规则）
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+%---------------------------------------------公式配置
+
+% %--------------------------------------------------tex block
+\newcommand{\titleZh}{这是一个长长长长长长长中文标题}
+%\newcommand{\titleZh}{这是中文标题}
+
+
+
+\StrLen{\titleZh}[\len]
+\ifnum\len>12
+	\newcommand{\titleZhUpper}{\StrMid{\titleZh}{1}{12}}
+	\newcommand{\titleZhLower}{\StrGobbleLeft{\titleZh}{12}}
+\else
+	\newcommand{\titleZhUpper}{\titleZh}
+	\newcommand{\titleZhLower}{}
+\fi
+
+\newcommand{\titleEN}{This is the English title}
+
+\newcommand{\stuSchool}{机械学院}
+\newcommand{\stuMajor}{机械设计及其自动化}
+\newcommand{\stuName}{张三}
+\newcommand{\stuID}{202511201}
+\newcommand{\stuTutor}{李四}
+\newcommand{\stuTime}{2026年06月01号}
+\newcommand{\headTitle}{华北水利水电大学毕业设计}	% 可以修改成论文
+
+
+% %--------------------------------------------------tex block
+
+
+% %--------------------------------------------------geometry
+\usepackage[a4paper,
+			left=2.5cm,
+			right=2.5cm,
+			top=2.5cm,
+			bottom=2.5cm,
+			headheight=14pt,  % 新增：适配小五号字体的页眉高度
+			headsep=1.0cm,    % 2.5-1.5;页眉内容底部到正文顶部的距离
+			footskip=0.75cm   % 2.5-1.75;页脚内容顶部到正文底部的距离
+			]{geometry}
+
+%----------------------------\usepackage{tocloft}
+
+
+%----------------------------\usepackage{fancyhdr}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\songti\zihao{-5} \headTitle}
+\fancyfoot[C]{\thepage}
+% 设置页眉下划线宽度，例如0.4pt
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 关键新增：重定义plain样式（章节首页默认样式），使其与fancy样式一致
+\fancypagestyle{plain}{
+	\fancyhf{}  % 清空原有页眉页脚
+	\fancyhead[C]{\songti\zihao{-5} \headTitle}	%同时显示章节首页页眉
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+%----------------------------\usepackage{fancyhdr}
+
+
+
+\usepackage{tocloft}
+
+\renewcommand{\contentsname}{{\zihao{3}\bfseries\heiti \hfill 目 \quad 录 \hfill \null}}
+
+% to do: bold
+
+
+\setlength\cftbeforetoctitleskip{9.5pt} %改变目录页大标题“目录”前间距
+\setlength\cftaftertoctitleskip{11pt} %改变目录页大标题“目录”后间距
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdot}}	% 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdot}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdot}}
+
+
+\setlength{\cftbeforechapskip}{0pt}	% to reduce distance between chapter and previous (sub)section
+
+\renewcommand{\cftchapfont}{\heiti\zihao{-4}}	% font for chapter in table of contents
+\renewcommand{\cftsecfont}{\zihao{-4}}	% font for sec in table of contents
+\renewcommand{\cftsubsecfont}{\zihao{-4}}	% font for sec in table of contents
+\setcounter{tocdepth}{3}
+%----------------------------\usepackage{tocloft}
+
+
+%-------------------------------------------set graphicx
+\usepackage{graphicx}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}	%图1-1,换成横线
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}	%表1-1,换成横线
+
+
+
+%-------------------------------------------set graphicx
+
+
+% ===================== 新增：PDF书签/超链接配置 =====================
+\usepackage[
+colorlinks=true,        % 超链接带颜色（false则为边框）
+linkcolor=black,        % 内部链接颜色（如目录跳转到章节）
+anchorcolor=black,      % 锚点颜色
+citecolor=black,        % 引用颜色
+urlcolor=blue,          % 网址颜色
+bookmarks=true,         % 启用PDF书签
+bookmarksnumbered=true, % 书签显示章节编号（如“1 引言”）
+bookmarksopen=true,     % 打开PDF时书签默认展开
+bookmarksopenlevel=2,   % 展开层级（2=显示chapter+section）
+unicode=true,           % 书签支持中文（关键！避免中文乱码）
+pdfencoding=auto       % PDF编码自动适配
+]{hyperref}
+
+% 解决ctex与hyperref的中文书签兼容问题（可选，防止特殊情况乱码）
+\usepackage{bookmark}      % 增强书签功能，优化中文显示
+\bookmarksetup{
+	numbered=true,          % 书签带编号
+	open=true,              % 展开书签
+	level=section           % 展开到section层级
+}
+
+
+% 设置autoref的中文名称
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\chapterautorefname}{章}
+\renewcommand{\sectionautorefname}{节}
+\renewcommand{\subsectionautorefname}{小节}
+\renewcommand{\equationautorefname}{公式}

@@ -1,0 +1,92 @@
+\chapter{格式说明}
+
+\section{插入图片与表格}
+\subsection{插入图片}
+\FloatBarrier
+
+
+可以如此引用图片，这里\autoref{fig:example}。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/chapter6/fig61.pdf}
+	\caption{这是一个示例图片的标题}
+	\label{fig:example}
+\end{figure}
+
+
+也可以直接插入图片，如漂亮的图书馆\autoref{fig:NCWULogo}。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/chapter6/NCWULogo.jpg}
+	\caption{华北水利水电大学图书馆}
+	\label{fig:NCWULogo}
+\end{figure}
+
+
+建议说明：
+\begin{enumerate}
+	\item 请注意图片源位置，如果本子文档名是chapter1,则正文应该是figures/chapter1/文件全名。此外，图片也应该在些路径下方；
+	\item 建议在线、云等图顺序是：Matlab中绘制与导出、导入-> Illustrator更改与导出 -> 导出pdf尽量格式；
+	\item 示意图顺序是：图片导入-> Illustrator更改与导出 -> 导出pdf尽量格式；
+	\item 图中文字应与正文中文字大小匹配。如没有额外要求，应与正文字体大小一致或小1号；
+	\item 推荐使用与页面同宽或者一半大小，并修改width，使其匹配
+\end{enumerate}
+
+\subsection{插入表格}
+
+可以如此引用表格，这里\autoref{tab:example}。
+
+\begin{table}[htbp]
+	\centering
+	\caption{这是一个示例图片的标题}	
+	\label{tab:example}
+	\includegraphics[width=1.0\textwidth]{figures/chapter6/tab1.pdf}
+\end{table}
+
+建议说明：
+\begin{enumerate}
+	\item 请尽量使用三线表格；
+	\item 表顺序是：Illustrator更改与导出 -> 导出pdf尽量格式；
+	\item 上下横线是1.5pt，第二条线是0.5pt，后面是中间没有线条；
+	\item 首行应该加粗，下方行是正常字体；
+	\item 推荐使用与页面同宽或者一半大小，并修改width，使其匹配
+\end{enumerate}
+
+\section{插入公式}
+
+正文中公式：满意度得分符合正态分布 $X \sim N(\mu, \sigma^2)$，其中$\mu=85.6$为均值，$\sigma=7.2$为标准差。。
+
+没有编号的公式为：
+心理危机预警模型的核心函数为：
+\begin{equation*}
+		f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation*}
+
+带编号的公式为：
+\begin{equation}
+	f(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+	\label{eq:TestEq}
+\end{equation}
+
+公示的引用为：可参见\autoref{eq:TestEq}
+
+\FloatBarrier
+\section{其他引用}
+\label{sec:others}
+
+引用章节：可以\autoref{sec:others}。
+
+页码引用：\autoref{sec:others}内容位于\pageref{sec:others}页。
+
+\FloatBarrier
+\section{插入引用参考文献}
+
+
+参考文献\cite{2025_段清娟}。
+
+两个参考文献见\cite{2025_孙少楠,2024_范钦红}。
+
+多个参考文献见\cite{2024_范钦红,2024_张巍,2024_郑蔚}。
+
