@@ -23,6 +23,7 @@ Texlive.iso 安装包比较大，网络不好的同学可以找小组长拷贝�
 将Font文件下字体进行安装，采用右键--为所有用户安装。
 
 保证打开【毕业设计（论文）格式和要求.doc】时首页与【NCWU_bachelorThesis_Latex】下的【main.pdf】字体显示一致，不然则为字体安装未成功。
+![alt text](image-4.png)
 
 ## 步骤5: 配置TeXstudio
 打开 TeXstudio ，点击【Options】-- 【Configure TeXstudio】，对以下两项进行修改。
@@ -37,6 +38,35 @@ txs:///xelatex | txs:///biber | txs:///xelatex | txs:///xelatex | txs:///view-pd
 ```
 txs:///biber
 ```
+## 步骤6: 开始编译
+在 TeXstudio 中，打开【NCWU_bachelorThesis_Latex】下的【main.tex】文件。之后进行编译，点击工具栏中双播放小按钮或者按【F5】快捷键。
+
+首次编译可能需要时间较长，后续会大大缩短编译时间。
+
+
+## 步骤7: 配置JabRef
+对JabRef作两处更改。
+
+修改1: 点击【File】--【Preferences】，修改文档格式为【biblatex】
+![alt text](image-1.png)
+
+修改2: 文献key的生成格式为【[year]_[auth]】，或者复制：
+```
+[year]_[auth]
+```
+
+如没有完成修改，可能是没有在输入之后点击回车。
+
+![alt text](image-2.png)
+
+导入和导出参考文献，可以进行自行学习。
+
+## 步骤8: 编写内容
+可以对照模版中第6章学习，或者复制对应格式内容。修改部分文字，或者段落，可以进行编译，查看文档结果。
+
+至此，已经完成所有配置，大家可以享用华北水利水电大学本科毕业设计（论文）Latex模版了。
+
+祝您鹏程万里。
 
 # 联系作者
 于仓促间完成本稿，难免有疏漏之处，请多见谅。如有更改或者其他需求，可以联系作者。
